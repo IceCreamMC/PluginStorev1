@@ -1,5 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+a {
+    text-decoration: none !important;
+}
+.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 100,
+  'GRAD' 200,
+  'opsz' 24
+}
+img {
+    -webkit-user-drag: none;  /* Disable dragging in WebKit browsers */
+    user-drag: none;          /* Standard for other browsers */
+    -webkit-user-select: none; /* Prevent text/image selection in WebKit browsers */
+    -moz-user-select: none;    /* Prevent text/image selection in Firefox */
+    -ms-user-select: none;     /* Prevent text/image selection in IE/Edge */
+    user-select: none;         /* Standard for other browsers */
+}
 body {
     font-family: 'Poppins', sans-serif;
     background-image: url("https://raw.githubusercontent.com/IceCreamMC/Website/refs/heads/main/src/images/background.webp");
@@ -8,6 +26,7 @@ body {
     background-attachment: fixed;
     background-position: center;
     color: #fff;
+    padding-top: 40px;
 }
 button {
     font-family: 'Poppins', sans-serif;
@@ -36,12 +55,17 @@ footer {
 }
 
 .nav {
-    background-color: #2e1c25;  /* Background color */
-    width: 100%;                /* Full width of the screen */
-    position: fixed;            /* Stick it to the top */
-    top: 0;                     /* Top of the screen */
-    left: 0;                    /* Align to the left */
-    z-index: 1000;              /* Ensure it's above other content */
-    padding: 20px 20px;              /* Add some padding */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional shadow effect */
+    background-color: #2e1c25;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    height: 40px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+    vertical-align: middle;
 }
