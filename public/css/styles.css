@@ -1,1 +1,37 @@
-/*just creating file rn "left by freeze"*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url("https://raw.githubusercontent.com/IceCreamMC/Website/refs/heads/main/src/images/background.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: #fff;
+}
+
+button {
+    font-family: 'Poppins', sans-serif;
+    border-radius: 100px;
+    background-color: #F953A6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 25px;
+    font-size: 23.5px;
+    float: center;
+}
+h1,h2,h3 {
+    text-align: center;
+}
+h1 {
+    font-size: 50px;
+}
+footer {
+    background-color: #2e1c25;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 20px 20px;
+}
