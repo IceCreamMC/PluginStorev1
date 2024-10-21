@@ -12,7 +12,6 @@ a {
 }
 img {
     -webkit-user-drag: none;  /* Disable dragging in WebKit browsers */
-    user-drag: none;          /* Standard for other browsers */
     -webkit-user-select: none; /* Prevent text/image selection in WebKit browsers */
     -moz-user-select: none;    /* Prevent text/image selection in Firefox */
     -ms-user-select: none;     /* Prevent text/image selection in IE/Edge */
