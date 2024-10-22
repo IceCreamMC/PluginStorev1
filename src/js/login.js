@@ -1,9 +1,9 @@
-// login.js
+// signup.js
 
 // Import the functions you need from the SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -21,27 +21,27 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
-// Handle login form submission
-const loginForm = document.querySelector('form');
+// Handle sign-up form submission
+const signupForm = document.querySelector('form');
 
-loginForm.addEventListener('submit', (e) => {
+signupForm.addEventListener('submit', (e) => {
   e.preventDefault(); // Prevent form from submitting the traditional way
 
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
 
-  // Sign in with Firebase Auth
-  signInWithEmailAndPassword(auth, email, password)
+  // Create a new user with Firebase Auth
+  createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in
+      // User created
       const user = userCredential.user;
-      console.log('User logged in:', user);
+      console.log('User signed up:', user);
       // Redirect or show success message
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.error('Error logging in:', errorCode, errorMessage);
+      console.error('Error signing up:', errorCode, errorMessage);
       // Show error to the user
     });
 });
