@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en">
 <head>
-    <title>ICMC Login</title>
+    <title>ICMC Sign Up</title>
     <style>
         * {
             margin: 0;
@@ -16,7 +16,7 @@
             align-items: center;
             height: 100vh;
         }
-        .login-container {
+        .signup-container {
             background: linear-gradient(135deg, #f671b5, #ff66c4);
             border-radius: 15px;
             padding: 40px;
@@ -68,16 +68,19 @@
     </style>
 </head>
 <body>
-<div class="login-container">
-    <h1>Login to access profile ➔</h1>
+<div class="signup-container">
+    <h1>Create Your ICMC Account ➔</h1>
     <form>
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="freeze@icecreammc.xyz" required>
         <label for="password">Password</label>
         <p>At least 6 Characters, 1 Symbol, One capital letter*</p>
         <input type="password" id="password" name="password" placeholder="£L+}}D,*" required>
-        <button type="submit">Login</button>
+        <button type="submit">Sign Up</button>
     </form>
-    <script type="module" src="src/js/login.js"></script>
 </div>
+
+<!-- Add the script to reference your external JavaScript file -->
+<script type="module" src="src/js/signup.js"></script>
 </body>
+</html>
