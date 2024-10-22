@@ -1,2 +1,2 @@
 # PluginStore
-Plugin store for icecreammc
+Plugin store for Icecreammc
