@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
 
 // Your Firebase configuration
 const firebaseConfig = {
@@ -17,6 +18,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app); // Initialize Firebase Storage
 
 // Function to get cookie by name
 function getCookie(name) {
@@ -32,8 +34,18 @@ onboardingForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   // Get form data
-  const username = document.querySelector('#username').value;
+  let username = document.querySelector('#username').value;
   const avatarFile = document.querySelector('#avatar').files[0];
+
+  // Validation: Ensure username starts with '@' and is less than or equal to 18 characters
+  if (!username.startsWith('@')) {
+    username = '@' + username; // Auto-add '@' if missing
+  }
+
+  if (username.length > 18) {
+    alert('Username must be 18 characters or less.');
+    return;
+  }
 
   // Get user ID from the cookie
   const userId = getCookie('authToken');
@@ -43,14 +55,22 @@ onboardingForm.addEventListener('submit', async (e) => {
     return;
   }
 
-  // Placeholder avatar URL (you'll need to upload the image separately)
   let avatarUrl = '';
 
-  // If the user uploaded an avatar, store it
+  // If the user uploaded an avatar, store it in Firebase Storage
   if (avatarFile) {
-    // You can use Firebase Storage to upload the file and get the URL
-    // For now, we'll assume the avatar URL is stored somewhere
-    avatarUrl = 'https://some-placeholder-url.com/avatar.png'; // Replace with actual URL after uploading
+    const storageRef = ref(storage, `avatars/${userId}/${avatarFile.name}`); // Create a storage reference
+    try {
+      // Upload the avatar file
+      const snapshot = await uploadBytes(storageRef, avatarFile);
+      console.log('Avatar uploaded successfully!');
+
+      // Get the URL of the uploaded avatar
+      avatarUrl = await getDownloadURL(snapshot.ref);
+      console.log('Avatar URL:', avatarUrl);
+    } catch (error) {
+      console.error('Error uploading avatar:', error);
+    }
   }
 
   // Prepare user data to store in Firestore
