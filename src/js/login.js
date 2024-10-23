@@ -1,11 +1,9 @@
 // login.js
 
-// Import the functions you need from the SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
-// Your web app's Firebase configuration
+// Your Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyA5r7JcmpnGgv5kyda1IeT5aoZxu3-izVA",
   authDomain: "icmc-official.firebaseapp.com",
@@ -18,30 +16,38 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
+
+// Function to set cookie
+function setCookie(name, value, days) {
+  const date = new Date();
+  date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Cookie expiry time
+  const expires = "expires=" + date.toUTCString();
+  document.cookie = `${name}=${value}; ${expires}; path=/`;
+}
 
 // Handle login form submission
 const loginForm = document.querySelector('form');
 
 loginForm.addEventListener('submit', (e) => {
-  e.preventDefault(); // Prevent form from submitting the traditional way
+  e.preventDefault(); // Prevent traditional form submission
 
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
 
-  // Sign in with Firebase Auth
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in
       const user = userCredential.user;
-      console.log('User logged in:', user);
-      // Redirect or show success message
+
+      // Store Auth token in cookies
+      user.getIdToken().then((token) => {
+        setCookie('authToken', token, 7); // Store token for 7 days
+        console.log('User logged in and token saved in cookies:', token);
+        // Redirect or show success message after login
+      });
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.error('Error logging in:', errorCode, errorMessage);
-      // Show error to the user
+      console.error('Error during login:', error.message);
+      // Handle errors (e.g., show error message to the user)
     });
 });
