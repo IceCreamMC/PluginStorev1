@@ -1,6 +1,3 @@
-// signup.js
-
-// Import Firebase SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
@@ -19,36 +16,25 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Function to set cookie
-function setCookie(name, value, days) {
-  const date = new Date();
-  date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Cookie expiry time
-  const expires = "expires=" + date.toUTCString();
-  document.cookie = `${name}=${value}; ${expires}; path=/`;
-}
+// Handle form submission for signup
+const signupForm = document.querySelector('#signupForm');
 
-// Handle sign-up form submission
-const signupForm = document.querySelector('form');
+signupForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-signupForm.addEventListener('submit', (e) => {
-  e.preventDefault(); // Prevent traditional form submission
-
+  // Get form data
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
 
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
+  try {
+    // Sign up user
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+    console.log('User signed up:', user);
 
-      // Store Auth token in cookies
-      user.getIdToken().then((token) => {
-        setCookie('authToken', token, 7); // Store token for 7 days
-        console.log('User signed up and token saved in cookies:', token);
-        // Redirect or show success message after sign-up
-      });
-    })
-    .catch((error) => {
-      console.error('Error during sign-up:', error.message);
-      // Handle errors (e.g., show error message to the user)
-    });
+    // Redirect to onboarding page after successful signup
+    window.location.href = '/onboarding.html';
+  } catch (error) {
+    console.error('Error signing up:', error);
+  }
 });
