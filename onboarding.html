@@ -47,14 +47,7 @@
             background-color: #fffcf8;
             font-size: 1rem;
         }
-        .username-input {
-            display: flex;
-            align-items: center;
-            background-color: #fffcf8;
-            border-radius: 10px;
-            border: 2px solid #ffa9f9;
-            padding: 10px;
-        }
+
         .username-input span {
             margin-right: 5px;
             color: #555;
@@ -86,11 +79,8 @@
     <form>
         <!-- Avatar Upload Section -->
         <label for="avatar">Upload Your Avatar</label>
-        <input type="file" id="avatar" name="avatar" accept="image/*" required>
-        <div class="username-input">
-            <p id="username">@username</p>
-        </div>
-
+        <input type="file" id="avatar" name="avatar" accept="image/*" >
+        <label for="username"></label><input type="text" id="username" name="username" placeholder="@freeze" >
         <button type="submit">Submit</button>
     </form>
     <script type="module" src="src/js/onboarding.js"></script>
