@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ICMC Onboarding</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffa9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .onboarding-container {
+            background: linear-gradient(135deg, #f671b5, #ff66c4);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 350px;
+        }
+        h1 {
+            font-size: 1.4rem;
+            color: black;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-size: 1rem;
+            margin: 10px 0 5px 0;
+            color: black;
+        }
+        input[type="text"],
+        input[type="file"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 2px solid #ffa9f9;
+            background-color: #fffcf8;
+            font-size: 1rem;
+        }
+        .username-input {
+            display: flex;
+            align-items: center;
+            background-color: #fffcf8;
+            border-radius: 10px;
+            border: 2px solid #ffa9f9;
+            padding: 10px;
+        }
+        .username-input span {
+            margin-right: 5px;
+            color: #555;
+            font-size: 1rem;
+        }
+        p {
+            font-size: 0.8rem;
+            margin: -10px 0 10px;
+            color: black;
+        }
+        button {
+            padding: 10px;
+            background-color: #ff3c8d;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff6699;
+        }
+    </style>
+</head>
+<body>
+<div class="onboarding-container">
+    <h1>Complete Your ICMC Onboarding ➔</h1>
+    <form>
+        <!-- Avatar Upload Section -->
+        <label for="avatar">Upload Your Avatar</label>
+        <input type="file" id="avatar" name="avatar" accept="image/*" required>
+        <div class="username-input">
+            <p id="username">@username</p>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+    <script type="module" src="src/js/onboarding.js"></script>
+</div>
+</body>
+</html>
