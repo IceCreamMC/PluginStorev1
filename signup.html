@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>ICMC Sign Up</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICMC Signup</title>
     <style>
         * {
             margin: 0;
@@ -10,14 +12,14 @@
         }
         body {
             font-family: Arial, sans-serif;
-            background-color: #ffa9f9;
+            background-color: #088f42;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
         .signup-container {
-            background: linear-gradient(135deg, #f671b5, #ff66c4);
+            background: linear-gradient(135deg, #63E39C, #26c56c, #56fd9e);
             border-radius: 15px;
             padding: 40px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -43,7 +45,7 @@
             padding: 10px;
             margin-bottom: 20px;
             border-radius: 10px;
-            border: 2px solid #ffa9f9;
+            border: 2px solid #088f42;
             background-color: #fffcf8;
             font-size: 1rem;
         }
@@ -54,7 +56,7 @@
         }
         button {
             padding: 10px;
-            background-color: #ff3c8d;
+            background-color: #088f42;
             color: white;
             border: none;
             border-radius: 15px;
@@ -63,15 +65,15 @@
             transition: 0.3s ease;
         }
         button:hover {
-            background-color: #ff6699;
+            background-color: #088f43ce;
         }
     </style>
 </head>
 <body>
-<div> class="signup-container">
-    <h1>Create your ICMC account ➔</h1>
-    <p>Already have an account? Login <a href="./login">here</a>!</p>
-    <form id="signupForm">
+    <div class="signup-container">
+        <h1>Create your ICMC account ➔</h1>
+        <p>Already have an account? Login <a href="./login">here</a>!</p>
+        <form id="signupForm">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="freeze@icecreammc.xyz" required>
             <label for="password">Password</label>
@@ -79,9 +81,8 @@
             <input type="password" id="password" name="password" placeholder="£L+}}D,*" required>
             <button type="submit">Sign Up</button>
         </form>
-</div>
-
-<!-- Add the script to reference your external JavaScript file -->
-<script type="module" src="src/js/signup.js"></script>
+    </div>
+    
+    <script type="module" src="src/js/signup.js"></script>
 </body>
 </html>
