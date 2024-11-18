@@ -19,7 +19,7 @@ img {
 }
 body {
     font-family: 'Poppins', sans-serif;
-    background-image: url("https://raw.githubusercontent.com/IceCreamMC/Website/refs/heads/main/src/images/background.webp");
+    background-image: url("/media/freeze/Acer/Users/zacha/Downloads/PluginStorev1-main (1)/PluginStorev1-main/public/images/parlorbackground.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -39,7 +39,18 @@ button {
     float: center;
     transition: transform 0.1s ease;
 }
-h1 {color: white;}
+h1 {color: rgb(0, 0, 0);line-height:45px; } 
+
+h2
+{
+line-height:10px;
+}
+h3
+{
+line-height:10px;
+}
+
+
 
 button:active {
     background-color: #d6006b; /* Color change when pressed down */
