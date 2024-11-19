@@ -39,11 +39,11 @@ button {
     float: center;
     transition: transform 0.1s ease;
 }
-h1 {color: rgb(0, 0, 0);line-height:45px; } 
+h1 {line-height:45px;  color: #ffffff;} 
 
 h2
 {
-line-height:10px;
+line-height:10px; color: #ffffff;
 }
 h3
 {
